@@ -1,3 +1,5 @@
+console.log('hola mundo');
+
 function getComputerChoice(max) {
   let choice = Math.floor(Math.random() * max);
 
@@ -9,8 +11,8 @@ function getComputerChoice(max) {
     return 'tijera';
   }
 }
-let ComputerChoice = getComputerChoice(3);
-// console.log(ComputerChoice);
+let result = getComputerChoice(3);
+// console.log(result);
 
 function getHumanChoice() {
   let humanInput = prompt();
@@ -24,7 +26,7 @@ function getHumanChoice() {
     return console.log('error, ingrese valor correcto');
   }
 }
-// let humanInput = getHumanChoice();
+let humanInput = getHumanChoice();
 // console.log(humanInput);
 
 let humanScore = 0;
