@@ -30,22 +30,51 @@ function getHumanChoice() {
 // let humanInput = getHumanChoice();
 // console.log(humanInput);
 
-let humanScore = 0;
-let computerScore = 0;
-
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
-    return console.log('Es un empate');
+    return 'Es un empate';
   }
   if (humanChoice === 'piedra') {
     if (computerChoice === 'tijera') {
-      return console.log('Ganaste, Piedra Aplasta a papel');
+      humanScore++;
+      return 'Ganaste, Piedra rompe a tijeras';
     } else {
-      return console.log('Perdiste, Papel Envuelve a Piedra');
+      computerScore++;
+      return 'Perdiste, Papel Envuelve a Piedra';
+    }
+  }
+  if (humanChoice === 'tijera') {
+    if (computerChoice === 'papel') {
+      humanScore++;
+      return 'Ganaste, Tijera Corta a papel';
+    } else {
+      computerScore++;
+      return 'Perdiste, Piedra rompe a tijeras';
+    }
+  }
+  if (humanChoice === 'papel') {
+    if (computerChoice === 'piedra') {
+      humanScore++;
+      return 'Ganaste, papel envuelve a piedra';
+    } else {
+      computerScore++;
+      return 'Perdiste, tijera corta a papel';
     }
   }
 }
+
+function playGame() {}
+
+let humanScore = 0;
+let computerScore = 0;
+
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+const result = playRound(humanSelection, computerSelection);
+
+console.log('Tu eleccion;', humanSelection);
+console.log('elecciond de la computadora;', computerSelection);
+console.log(result);
+console.log('usuario', humanScore);
+console.log('computadora', computerScore);
