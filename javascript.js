@@ -1,5 +1,5 @@
-function getComputerChoice(max) {
-  let choice = Math.floor(Math.random() * max);
+function getComputerChoice() {
+  let choice = Math.floor(Math.random() * 3);
 
   if (choice === 0) {
     return 'piedra';
@@ -9,11 +9,14 @@ function getComputerChoice(max) {
     return 'tijera';
   }
 }
-let ComputerChoice = getComputerChoice(3);
+// let ComputerChoice = getComputerChoice(3);
 // console.log(ComputerChoice);
 
 function getHumanChoice() {
-  let humanInput = prompt();
+  let humanInput = prompt(
+    'Por favor, elije piedra, papel tijera',
+  ).toLowerCase();
+
   if (humanInput === 'piedra') {
     return 'piedra';
   } else if (humanInput === 'papel') {
@@ -29,3 +32,20 @@ function getHumanChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice === computerChoice) {
+    return console.log('Es un empate');
+  }
+  if (humanChoice === 'piedra') {
+    if (computerChoice === 'tijera') {
+      return console.log('Ganaste, Piedra Aplasta a papel');
+    } else {
+      return console.log('Perdiste, Papel Envuelve a Piedra');
+    }
+  }
+}
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
