@@ -1,80 +1,73 @@
-// eleccion aleatoria de la computadora
-function getComputerChoice() {
-  let choice = Math.floor(Math.random() * 3);
+// jugar 5 rondas
+function Playgame() {
+  // eleccion aleatoria de la computadora
+  function getComputerChoice() {
+    let choice = Math.floor(Math.random() * 3);
 
-  if (choice === 0) {
-    return "piedra";
-  } else if (choice === 1) {
-    return "papel";
-  } else {
-    return "tijera";
-  }
-}
-
-// eleccion del jugador
-
-function getHumanChoice() {
-  let humanInput = prompt(
-    "Por favor, elije piedra, papel tijera"
-  ).toLowerCase();
-
-  if (humanInput === "piedra") {
-    return "piedra";
-  } else if (humanInput === "papel") {
-    return "papel";
-  } else if (humanInput === "tijera") {
-    return "tijera";
-  } else {
-    return console.log("error, ingrese valor correcto");
-  }
-}
-// jugar una ronda
-function playRound(humanChoice, computerChoice) {
-  if (humanChoice === computerChoice) {
-    return "Es un empate";
-  }
-  if (humanChoice === "piedra") {
-    if (computerChoice === "tijera") {
-      humanScore++;
-      return "Ganaste, Piedra rompe a tijeras";
+    if (choice === 0) {
+      return "piedra";
+    } else if (choice === 1) {
+      return "papel";
     } else {
-      computerScore++;
-      return "Perdiste, Papel Envuelve a Piedra";
+      return "tijera";
     }
   }
-  if (humanChoice === "tijera") {
-    if (computerChoice === "papel") {
-      humanScore++;
-      return "Ganaste, Tijera Corta a papel";
+
+  // eleccion del jugador
+  function getHumanChoice() {
+    let humanInput = prompt(
+      "Por favor, elije piedra, papel tijera"
+    ).toLowerCase();
+
+    if (humanInput === "piedra") {
+      return "piedra";
+    } else if (humanInput === "papel") {
+      return "papel";
+    } else if (humanInput === "tijera") {
+      return "tijera";
     } else {
-      computerScore++;
+      return console.log("error, ingrese valor correcto");
+    }
+  }
+
+  // llamadas a las funciones de eleccion
+  let humanSelection = getHumanChoice();
+  let computerSelection = getComputerChoice();
+
+  console.log("Tu eleccion;", humanSelection);
+  console.log("eleccion de la computadora;", computerSelection);
+
+  // llamada a la funcion para jugar una ronda
+  let result = playRound(humanSelection, computerSelection);
+  console.log(result);
+
+  // jugar una ronda
+  function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+      return "Es un empate";
+    }
+    if (humanChoice === "piedra") {
+      if (computerChoice === "tijera") {
+        return "Ganaste, Piedra rompe a tijeras";
+      } else {
+        return "Perdiste, Papel Envuelve a Piedra";
+      }
+    }
+    if (humanChoice === "tijera") {
+      if (computerChoice === "papel") return "Ganaste, Tijera Corta a papel";
+    } else {
       return "Perdiste, Piedra rompe a tijeras";
     }
-  }
-  if (humanChoice === "papel") {
-    if (computerChoice === "piedra") {
-      humanScore++;
-      return "Ganaste, papel envuelve a piedra";
-    } else {
-      computerScore++;
-      return "Perdiste, tijera corta a papel";
+    if (humanChoice === "papel") {
+      if (computerChoice === "piedra") {
+        return "Ganaste, papel envuelve a piedra";
+      } else {
+        return "Perdiste, tijera corta a papel";
+      }
     }
   }
 }
 
-// variables de puntuacion por rondas
-let humanScore = 0;
-let computerScore = 0;
-
-// llamadas a las funciones de eleccion
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-// llamada a la funcion para jugar una ronda
-const result = playRound(humanSelection, computerSelection);
-
-// todos los console.log
-console.log("Tu eleccion;", humanSelection);
-console.log("elecciond de la computadora;", computerSelection);
-console.log(result);
-console.log("usuario", humanScore);
-console.log("computadora", computerScore);
+for (let i = 1; i <= 5; i++) {
+  Playgame();
+}
