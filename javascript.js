@@ -33,9 +33,9 @@ let computerScore = 0;
 // }
 
 // el primero que llegue a 5 puntos
-while (humanscore < 5 && computerScore < 5) {
-  checkScore();
-}
+// while (humanscore < 5 && computerScore < 5) {
+checkScore();
+// }
 
 function checkScore() {
   if (computerScore <= 5 && humanscore <= 5) {
