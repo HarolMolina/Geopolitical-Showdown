@@ -27,7 +27,13 @@ function getHumanChoice() {
 let humanscore = 0;
 let computerScore = 0;
 
-for (let i = 1; i <= 5; i++) {
+// El juego comienza aqui 5 partidas maximo
+// for (let i = 1; i <= 5; i++) {
+//   checkScore();
+// }
+
+// el primero que llegue a 5 puntos
+while (humanscore < 5 && computerScore < 5) {
   checkScore();
 }
 
@@ -49,8 +55,6 @@ function Playgame() {
 
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-      humanscore++;
-      computerScore++;
       return "Es un empate";
     }
     if (humanChoice === "piedra") {
