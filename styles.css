@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid #ffd700; /* Borde de 1 píxel con color amarillo sol */
+}
+body {
+  height: 100vh; /* Altura igual al 100% de la altura de la pantalla */
+  width: 100vw; /* Ancho igual al 100% de la anchura de la pantalla */
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #283357;
+  padding: 10px;
+  font-size: 45px;
+  height: 15vh;
+  color: #e6c9b3;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+.score {
+  text-align: center;
+  width: 80px;
+}
