@@ -105,8 +105,22 @@ header {
   align-items: center;
 }
 
-.image-box img {
+.ping {
+  background: url("/Images/avocado.jpg") no-repeat center;
+}
+.putin {
+  background: url("/putin.webp") no-repeat center;
+}
+.trump {
+  background: url("/trump.webp") no-repeat center;
+}
+.ping,
+.putin,
+.trump {
+  background-size: contain; /* Ajusta la imagen sin recortarla */
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Ajusta la imagen sin cortarla */
+  border: none;
+  cursor: pointer;
+  display: block;
 }

@@ -1,3 +1,8 @@
+const botones = document.querySelectorAll("button");
+botones.forEach((button) => {
+  button.addEventListener("click", () => {});
+});
+
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3);
   if (choice === 0) {
@@ -9,7 +14,7 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
+function getHumanChoice(button) {
   let humanInput = prompt(
     "Por favor, elije piedra, papel tijera"
   ).toLowerCase();
@@ -34,15 +39,15 @@ let computerScore = 0;
 
 // el primero que llegue a 5 puntos
 // while (humanscore < 5 && computerScore < 5) {
-checkScore();
+// checkScore();
 // }
 
-function checkScore() {
-  if (computerScore <= 5 && humanscore <= 5) {
-    Playgame();
-  } else {
-  }
-}
+// function checkScore() {
+//   if (computerScore <= 5 && humanscore <= 5) {
+Playgame();
+//   } else {
+//   }
+// }
 
 function Playgame() {
   let humanSelection = getHumanChoice();
@@ -92,3 +97,5 @@ function Playgame() {
       computerScore
   );
 }
+
+// /////////////////////////////////////////////////////////////aqui empieza el tema dom
