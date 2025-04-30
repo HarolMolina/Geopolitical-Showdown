@@ -1,6 +1,66 @@
 const botones = document.querySelectorAll("button");
 botones.forEach((button) => {
-  button.addEventListener("click", () => {});
+  button.addEventListener("click", () => {
+    Playgame();
+
+    function Playgame() {
+      let humanSelection = getHumanChoice(button.id);
+      let computerSelection = getComputerChoice();
+
+      console.log("eleccion de la computadora;", computerSelection);
+
+      let result = playRound(humanSelection, computerSelection);
+      console.log(result);
+
+      function playRound(humanChoice, computerChoice) {
+        if (humanChoice === computerChoice) {
+          return "Es un empate";
+        }
+        if (humanChoice === "piedra") {
+          if (computerChoice === "tijera") {
+            humanscore++;
+            return "Ganaste, Piedra rompe a tijeras";
+          } else {
+            computerScore++;
+            return "Perdiste, Papel Envuelve a Piedra";
+          }
+        }
+        if (humanChoice === "tijera") {
+          if (computerChoice === "papel") {
+            humanscore++;
+            return "Ganaste, Tijera Corta a papel";
+          } else {
+            computerScore++;
+            return "Perdiste, Piedra rompe a tijeras";
+          }
+        }
+        if (humanChoice === "papel") {
+          if (computerChoice === "piedra") {
+            humanscore++;
+            return "Ganaste, papel envuelve a piedra";
+          } else {
+            computerScore++;
+            return "Perdiste, tijera corta a papel";
+          }
+        }
+      }
+      console.log(
+        "la puntuacion es Usuario " +
+          humanscore +
+          " // computadora " +
+          computerScore
+      );
+      if (humanscore == 5) {
+        alert("Ganaste!!! Ahora tu dominas el mundo");
+        // humanscore = 0;
+        // computerScore = 0;
+      } else if (computerScore == 5) {
+        alert("Perdiste!!! Bajate el Pantalon y ponte en 4");
+        // humanscore = 0;
+        // computerScore = 0;
+      }
+    }
+  });
 });
 
 function getComputerChoice() {
@@ -15,9 +75,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice(button) {
-  let humanInput = prompt(
-    "Por favor, elije piedra, papel tijera"
-  ).toLowerCase();
+  let humanInput = button;
 
   if (humanInput === "piedra") {
     return "piedra";
@@ -44,58 +102,9 @@ let computerScore = 0;
 
 // function checkScore() {
 //   if (computerScore <= 5 && humanscore <= 5) {
-Playgame();
+
 //   } else {
 //   }
 // }
-
-function Playgame() {
-  let humanSelection = getHumanChoice();
-  let computerSelection = getComputerChoice();
-
-  console.log("eleccion de la computadora;", computerSelection);
-
-  let result = playRound(humanSelection, computerSelection);
-  console.log(result);
-
-  function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-      return "Es un empate";
-    }
-    if (humanChoice === "piedra") {
-      if (computerChoice === "tijera") {
-        humanscore++;
-        return "Ganaste, Piedra rompe a tijeras";
-      } else {
-        computerScore++;
-        return "Perdiste, Papel Envuelve a Piedra";
-      }
-    }
-    if (humanChoice === "tijera") {
-      if (computerChoice === "papel") {
-        humanscore++;
-        return "Ganaste, Tijera Corta a papel";
-      } else {
-        computerScore++;
-        return "Perdiste, Piedra rompe a tijeras";
-      }
-    }
-    if (humanChoice === "papel") {
-      if (computerChoice === "piedra") {
-        humanscore++;
-        return "Ganaste, papel envuelve a piedra";
-      } else {
-        computerScore++;
-        return "Perdiste, tijera corta a papel";
-      }
-    }
-  }
-  console.log(
-    "la puntuacion es Usuario " +
-      humanscore +
-      " // computadora " +
-      computerScore
-  );
-}
 
 // /////////////////////////////////////////////////////////////aqui empieza el tema dom
