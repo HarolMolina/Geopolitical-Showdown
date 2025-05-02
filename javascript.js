@@ -19,7 +19,7 @@ botones.forEach((button) => {
 
     function playRound(humanChoice, computerChoice) {
       if (humanChoice === computerChoice) {
-        return "Es un empate";
+        return `${humanChoice} empata con ${computerChoice}`;
       }
       if (humanChoice === "piedra") {
         if (computerChoice === "tijera") {
