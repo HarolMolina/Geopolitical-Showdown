@@ -2,65 +2,69 @@ const botones = document.querySelectorAll("button");
 botones.forEach((button) => {
   button.addEventListener("click", () => {
     Playgame();
+  });
 
-    function Playgame() {
-      let humanSelection = getHumanChoice(button.id);
-      let computerSelection = getComputerChoice();
+  function Playgame() {
+    let humanSelection = getHumanChoice(button.id);
+    let computerSelection = getComputerChoice();
 
-      console.log("eleccion de la computadora;", computerSelection);
+    console.log("eleccion de la computadora;", computerSelection);
 
-      let result = playRound(humanSelection, computerSelection);
-      console.log(result);
+    let result = playRound(humanSelection, computerSelection);
+    console.log(result);
 
-      function playRound(humanChoice, computerChoice) {
-        if (humanChoice === computerChoice) {
-          return "Es un empate";
-        }
-        if (humanChoice === "piedra") {
-          if (computerChoice === "tijera") {
-            humanscore++;
-            return "Ganaste, Piedra rompe a tijeras";
-          } else {
-            computerScore++;
-            return "Perdiste, Papel Envuelve a Piedra";
-          }
-        }
-        if (humanChoice === "tijera") {
-          if (computerChoice === "papel") {
-            humanscore++;
-            return "Ganaste, Tijera Corta a papel";
-          } else {
-            computerScore++;
-            return "Perdiste, Piedra rompe a tijeras";
-          }
-        }
-        if (humanChoice === "papel") {
-          if (computerChoice === "piedra") {
-            humanscore++;
-            return "Ganaste, papel envuelve a piedra";
-          } else {
-            computerScore++;
-            return "Perdiste, tijera corta a papel";
-          }
+    // Mostrar en pantalla el ganador
+    document.getElementById("welcome").innerHTML = result;
+    // mostrar en la pantalla la foto de tu eleccion y la foto de la eleccon de la computadora
+
+    function playRound(humanChoice, computerChoice) {
+      if (humanChoice === computerChoice) {
+        return "Es un empate";
+      }
+      if (humanChoice === "piedra") {
+        if (computerChoice === "tijera") {
+          humanscore++;
+          return "Ganaste, Piedra rompe a tijeras";
+        } else {
+          computerScore++;
+          return "Perdiste, Papel Envuelve a Piedra";
         }
       }
-      console.log(
-        "la puntuacion es Usuario " +
-          humanscore +
-          " // computadora " +
-          computerScore
-      );
-      if (humanscore == 5) {
-        alert("Ganaste!!! Ahora tu dominas el mundo");
-        // humanscore = 0;
-        // computerScore = 0;
-      } else if (computerScore == 5) {
-        alert("Perdiste!!! Bajate el Pantalon y ponte en 4");
-        // humanscore = 0;
-        // computerScore = 0;
+      if (humanChoice === "tijera") {
+        if (computerChoice === "papel") {
+          humanscore++;
+          return "Ganaste, Tijera Corta a papel";
+        } else {
+          computerScore++;
+          return "Perdiste, Piedra rompe a tijeras";
+        }
+      }
+      if (humanChoice === "papel") {
+        if (computerChoice === "piedra") {
+          humanscore++;
+          return "Ganaste, papel envuelve a piedra";
+        } else {
+          computerScore++;
+          return "Perdiste, tijera corta a papel";
+        }
       }
     }
-  });
+    console.log(
+      "la puntuacion es Usuario " +
+        humanscore +
+        " // computadora " +
+        computerScore
+    );
+    if (humanscore == 5) {
+      alert("Ganaste!!! Ahora tu dominas el mundo");
+      // humanscore = 0;
+      // computerScore = 0;
+    } else if (computerScore == 5) {
+      alert("Perdiste!!! Bajate el Pantalon y ponte en 4");
+      // humanscore = 0;
+      // computerScore = 0;
+    }
+  }
 });
 
 function getComputerChoice() {
@@ -89,22 +93,3 @@ function getHumanChoice(button) {
 }
 let humanscore = 0;
 let computerScore = 0;
-
-// El juego comienza aqui 5 partidas maximo
-// for (let i = 1; i <= 5; i++) {
-//   checkScore();
-// }
-
-// el primero que llegue a 5 puntos
-// while (humanscore < 5 && computerScore < 5) {
-// checkScore();
-// }
-
-// function checkScore() {
-//   if (computerScore <= 5 && humanscore <= 5) {
-
-//   } else {
-//   }
-// }
-
-// /////////////////////////////////////////////////////////////aqui empieza el tema dom
