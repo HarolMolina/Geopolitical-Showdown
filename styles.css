@@ -106,13 +106,13 @@ header {
 }
 
 .ping {
-  background: url("/Images/avocado.jpg") no-repeat center;
+  background: url("Images/avocado.jpg") no-repeat center;
 }
 .putin {
-  background: url("/putin.webp") no-repeat center;
+  background: url("putin.webp") no-repeat center;
 }
 .trump {
-  background: url("/trump.webp") no-repeat center;
+  background: url("trump.webp") no-repeat center;
 }
 .ping,
 .putin,

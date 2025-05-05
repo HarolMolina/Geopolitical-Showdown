@@ -79,7 +79,7 @@ function getComputerChoice() {
     // maquina mostrar  a trump
     let pictureOnDisplay = document.querySelector(".computer-choice");
     let img = document.createElement("img");
-    img.src = "/Images/trump gana .webp";
+    img.src = "Images/trump gana .webp";
     pictureOnDisplay.textContent = "";
     pictureOnDisplay.appendChild(img);
 
@@ -88,7 +88,7 @@ function getComputerChoice() {
     // maquina mostrar  a xijinping
     let pictureOnDisplay = document.querySelector(".computer-choice");
     let img = document.createElement("img");
-    img.src = "/Images/avocado.jpg";
+    img.src = "Images/avocado.jpg";
     pictureOnDisplay.textContent = "";
     pictureOnDisplay.appendChild(img);
 
@@ -111,7 +111,7 @@ function getHumanChoice(button) {
     // humano mostrar  a trump
     let pictureOnDisplay = document.querySelector(".human-choice");
     let img = document.createElement("img");
-    img.src = "/Images/trump gana .webp";
+    img.src = "Images/trump gana .webp";
     pictureOnDisplay.textContent = "";
     pictureOnDisplay.appendChild(img);
     return "papel";
@@ -119,7 +119,7 @@ function getHumanChoice(button) {
     // humano mostrar  a xijinping
     let pictureOnDisplay = document.querySelector(".human-choice");
     let img = document.createElement("img");
-    img.src = "/Images/avocado.jpg";
+    img.src = "Images/avocado.jpg";
     pictureOnDisplay.textContent = "";
     pictureOnDisplay.appendChild(img);
     return "tijera";
