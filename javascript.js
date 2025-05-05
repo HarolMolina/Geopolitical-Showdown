@@ -14,8 +14,7 @@ botones.forEach((button) => {
     console.log(result);
 
     // Mostrar en pantalla el ganador
-    document.getElementById("welcome").innerHTML = result;
-    // mostrar en la pantalla la foto de tu eleccion y la foto de la eleccon de la computadora
+    document.getElementById("welcome").textContent = result;
 
     function playRound(humanChoice, computerChoice) {
       if (humanChoice === computerChoice) {
@@ -49,20 +48,15 @@ botones.forEach((button) => {
         }
       }
     }
-    console.log(
-      "la puntuacion es Usuario " +
-        humanscore +
-        " // computadora " +
-        computerScore
-    );
+
+    // mostrar la puntuacion
+    let scoreOnDispaly = document.querySelector(".puntuacion");
+    scoreOnDispaly.textContent = `${humanscore} Score ${computerScore}`;
+
     if (humanscore == 5) {
       alert("Ganaste!!! Ahora tu dominas el mundo");
-      // humanscore = 0;
-      // computerScore = 0;
     } else if (computerScore == 5) {
       alert("Perdiste!!! Bajate el Pantalon y ponte en 4");
-      // humanscore = 0;
-      // computerScore = 0;
     }
   }
 });
@@ -70,6 +64,12 @@ botones.forEach((button) => {
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3);
   if (choice === 0) {
+    //mostrar  a putin
+    let pictureOnDisplay = document.querySelector(".computer-choice");
+    let img = document.createElement("img");
+    img.src = "Images/putin gana.webp";
+    pictureOnDisplay.textContent = "";
+    pictureOnDisplay.appendChild(img);
     return "piedra";
   } else if (choice === 1) {
     return "papel";
@@ -82,10 +82,29 @@ function getHumanChoice(button) {
   let humanInput = button;
 
   if (humanInput === "piedra") {
+    // humano  mostrar  a putin
+    let pictureOnDisplay = document.querySelector(".human-choice");
+    let img = document.createElement("img");
+    img.src = "Images/putin gana.webp";
+    pictureOnDisplay.textContent = "";
+    pictureOnDisplay.appendChild(img);
     return "piedra";
   } else if (humanInput === "papel") {
+    // humano mostrar  a xijinping
+    let pictureOnDisplay = document.querySelector(".human-choice");
+    let img = document.createElement("img");
+    img.src = "/Images/avocado.jpg";
+    pictureOnDisplay.textContent = "";
+    pictureOnDisplay.appendChild(img);
+
     return "papel";
   } else if (humanInput === "tijera") {
+    // humano mostrar  a trump
+    let pictureOnDisplay = document.querySelector(".human-choice");
+    let img = document.createElement("img");
+    img.src = "/Images/trump gana .webp";
+    pictureOnDisplay.textContent = "";
+    pictureOnDisplay.appendChild(img);
     return "tijera";
   } else {
     return console.log("error, ingrese valor correcto");

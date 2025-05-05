@@ -124,3 +124,9 @@ header {
   cursor: pointer;
   display: block;
 }
+.human-choice img,
+.computer-choice img {
+  width: 100%; /* Ajusta la imagen al tamaño del div */
+  height: 100%; /* Se adapta sin deformarse */
+  object-fit: contain; /* Mantiene proporciones sin recortar */
+}
