@@ -8,4 +8,5 @@ Cada elección no solo define tu destino, sino que puede cambiar el curso de la 
 (gana el mejor de 5 rondas)
 
 
-bueno en fin... el piedra papel tijera de toda life...
+bueno en fin... el piedra papel tijera de toda life... Proyecto de The Odin Project tacteo
+cuando encuentre un stiker del chinito lo pongo jeje 
